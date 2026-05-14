@@ -1,0 +1,111 @@
+Traceback (most recent call last):
+  File "C:\Users\Faizal hidayat\strukdat\Lib\site-packages\jupyter_cache\executors\utils.py", line 58, in single_nb_execution
+    executenb(
+    ~~~~~~~~~^
+        nb,
+        ^^^
+    ...<4 lines>...
+        **kwargs,
+        ^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Faizal hidayat\strukdat\Lib\site-packages\nbclient\client.py", line 1323, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Faizal hidayat\strukdat\Lib\site-packages\jupyter_core\utils\__init__.py", line 165, in wrapped
+    return loop.run_until_complete(inner)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^
+  File "C:\Users\Faizal hidayat\AppData\Local\Programs\Python\Python313\Lib\asyncio\base_events.py", line 725, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "C:\Users\Faizal hidayat\strukdat\Lib\site-packages\nbclient\client.py", line 709, in async_execute
+    await self.async_execute_cell(
+        cell, index, execution_count=self.code_cells_executed + 1
+    )
+  File "C:\Users\Faizal hidayat\strukdat\Lib\site-packages\nbclient\client.py", line 1062, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "C:\Users\Faizal hidayat\strukdat\Lib\site-packages\nbclient\client.py", line 918, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+def stack():
+    s=[]
+    return (s)
+def push(s,data):
+    s.append(data)
+def pop(s):
+    data=s.pop()
+    return(data)
+def peek(s):
+    return(s[len(s)-1])
+def isEmpty(s):
+    return (s==[])
+def size(s):
+    return(len(s))
+
+infix = input("masukkan infix: ").split()
+opstack = []
+output = []
+
+operator = "*+-/"
+
+presenden = {
+    "*" : 2,
+    "/" : 2,
+    "+" : 1,
+    "-" : 1
+}
+
+for i in infix:
+    if i in operator:
+        while not isEmpty(opstack) and peek(opstack) in operator and presenden[i] <= presenden[peek(opstack)]:
+            push(output, pop(opstack))
+        push(opstack, i)
+    
+    elif i == "(":
+        push(opstack, i)
+        
+    elif i == ")":
+        while not isEmpty(opstack) and peek(opstack) != "(":
+            push(output, pop(opstack))
+        pop(opstack)
+        
+    else:
+        push(output, i)
+        
+while not isEmpty(opstack):
+    push(output, pop(opstack))
+
+hasil = ""      
+for i in output:
+    hasil += i + " "
+
+print(hasil)    
+------------------
+
+
+[31m---------------------------------------------------------------------------[39m
+[31mStdinNotImplementedError[39m                  Traceback (most recent call last)
+[36mCell[39m[36m [39m[32mIn[1][39m[32m, line 16[39m
+[32m     12[39m     [38;5;28;01mreturn[39;00m (s==[])
+[32m     13[39m [38;5;28;01mdef[39;00m size(s):
+[32m     14[39m     [38;5;28;01mreturn[39;00m(len(s))
+[32m     15[39m 
+[32m---> [39m[32m16[39m infix = input([33m"masukkan infix: "[39m).split()
+[32m     17[39m opstack = []
+[32m     18[39m output = []
+[32m     19[39m 
+
+[36mFile [39m[32m~\strukdat\Lib\site-packages\ipykernel\kernelbase.py:1402[39m, in [36mKernel.raw_input[39m[34m(self, prompt)[39m
+[32m   1400[39m [38;5;28;01mif[39;00m [38;5;129;01mnot[39;00m [38;5;28mself[39m._allow_stdin:
+[32m   1401[39m     msg = [33m"[39m[33mraw_input was called, but this frontend does not support input requests.[39m[33m"[39m
+[32m-> [39m[32m1402[39m     [38;5;28;01mraise[39;00m StdinNotImplementedError(msg)
+[32m   1403[39m [38;5;28;01mreturn[39;00m [38;5;28mself[39m._input_request(
+[32m   1404[39m     [38;5;28mstr[39m(prompt),
+[32m   1405[39m     [38;5;28mself[39m._get_shell_context_var([38;5;28mself[39m._shell_parent_ident),
+[32m   1406[39m     [38;5;28mself[39m.get_parent([33m"[39m[33mshell[39m[33m"[39m),
+[32m   1407[39m     password=[38;5;28;01mFalse[39;00m,
+[32m   1408[39m )
+
+[31mStdinNotImplementedError[39m: raw_input was called, but this frontend does not support input requests.
+

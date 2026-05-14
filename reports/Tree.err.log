@@ -1,0 +1,137 @@
+Traceback (most recent call last):
+  File "C:\Users\Faizal hidayat\strukdat\Lib\site-packages\jupyter_cache\executors\utils.py", line 58, in single_nb_execution
+    executenb(
+    ~~~~~~~~~^
+        nb,
+        ^^^
+    ...<4 lines>...
+        **kwargs,
+        ^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Faizal hidayat\strukdat\Lib\site-packages\nbclient\client.py", line 1323, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Faizal hidayat\strukdat\Lib\site-packages\jupyter_core\utils\__init__.py", line 165, in wrapped
+    return loop.run_until_complete(inner)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^
+  File "C:\Users\Faizal hidayat\AppData\Local\Programs\Python\Python313\Lib\asyncio\base_events.py", line 725, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "C:\Users\Faizal hidayat\strukdat\Lib\site-packages\nbclient\client.py", line 709, in async_execute
+    await self.async_execute_cell(
+        cell, index, execution_count=self.code_cells_executed + 1
+    )
+  File "C:\Users\Faizal hidayat\strukdat\Lib\site-packages\nbclient\client.py", line 1062, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "C:\Users\Faizal hidayat\strukdat\Lib\site-packages\nbclient\client.py", line 918, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+#kode binary tree untuk persamaan matematika (parsing)
+def stack():
+    s=[]
+    return (s)
+def push(s,data):
+    s.append(data)
+def pop(s):
+    data=s.pop()
+    return(data)
+def peek(s):
+    return(s[len(s)-1])
+def isEmpty(s):
+    return (s==[])
+def size(s):
+    return(len(s))
+
+class BinaryTree:
+    def __init__(self, root):
+        self.key = root
+        self.leftChild = None
+        self.rightChild = None
+    def insertLeft(self, new_node):
+        if self.leftChild == None:
+            self.leftChild = BinaryTree(new_node)
+        else:
+            t = BinaryTree(new_node)
+            t.leftChild = self.leftChild
+            self.leftChild = t
+    def insertRight(self, new_node):
+        if self.rightChild == None:
+            self.rightChild = BinaryTree(new_node)
+        else:
+            t = BinaryTree(new_node)
+            t.rightChild = self.rightChild
+            self.rightChild = t
+    def getRightChild(self):
+        return self.rightChild
+    def getLeftChild(self):
+        return self.leftChild
+    def setRootVal(self, obj):
+        self.key = obj
+    def getRootVal(self):
+        return self.key
+
+def buildParseTree(mathExp):
+    tokenList = mathExp.split()
+    parentStack = stack()
+    expTree = BinaryTree(' ' )
+    push(parentStack,expTree)
+    print(tokenList)
+    currentTree = expTree
+    for i in tokenList:
+        if i == '(' :
+            print('if 1', i)
+            currentTree.insertLeft(' ' )
+            push(parentStack,currentTree)
+            currentTree = currentTree.getLeftChild()
+        elif i not in [ '+' , '-' , '*' , '/' , ')' ]:
+            print('if 2', i)
+            currentTree.setRootVal(int(i))
+            parent = pop(parentStack)
+            currentTree = parent
+        elif i in [ '+' , '-' , '*' , '/' ]:
+            print('if 3', i)
+            currentTree.setRootVal(i)
+            currentTree.insertRight(' ' )
+            push(parentStack,currentTree)
+            currentTree = currentTree.getRightChild()
+        elif i == ')' :
+            currentTree = pop(parentStack)
+        else:
+            raise ValueError
+            return expTree
+
+pt = buildParseTree(' ( 3 + ( 4 * 5 ) ) ')
+print(pt.getRootVal())
+tmp=pt.getLeftChild()
+print(tmp.getRootVal())
+if pt.getLeftChild():
+    print("Tree")
+------------------
+
+----- stdout -----
+['(', '3', '+', '(', '4', '*', '5', ')', ')']
+if 1 (
+if 2 3
+if 3 +
+if 1 (
+if 2 4
+if 3 *
+if 2 5
+------------------
+
+[31m---------------------------------------------------------------------------[39m
+[31mAttributeError[39m                            Traceback (most recent call last)
+[36mCell[39m[36m [39m[32mIn[2][39m[32m, line 76[39m
+[32m     72[39m             [38;5;28;01mraise[39;00m ValueError
+[32m     73[39m             [38;5;28;01mreturn[39;00m expTree
+[32m     74[39m 
+[32m     75[39m pt = buildParseTree([33m' ( 3 + ( 4 * 5 ) ) '[39m)
+[32m---> [39m[32m76[39m print(pt.getRootVal())
+[32m     77[39m tmp=pt.getLeftChild()
+[32m     78[39m print(tmp.getRootVal())
+[32m     79[39m [38;5;28;01mif[39;00m pt.getLeftChild():
+
+[31mAttributeError[39m: 'NoneType' object has no attribute 'getRootVal'
+

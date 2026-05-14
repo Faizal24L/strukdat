@@ -1,0 +1,263 @@
+Traceback (most recent call last):
+  File "C:\Users\Faizal hidayat\strukdat\Lib\site-packages\jupyter_cache\executors\utils.py", line 58, in single_nb_execution
+    executenb(
+    ~~~~~~~~~^
+        nb,
+        ^^^
+    ...<4 lines>...
+        **kwargs,
+        ^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Faizal hidayat\strukdat\Lib\site-packages\nbclient\client.py", line 1323, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Faizal hidayat\strukdat\Lib\site-packages\jupyter_core\utils\__init__.py", line 165, in wrapped
+    return loop.run_until_complete(inner)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^
+  File "C:\Users\Faizal hidayat\AppData\Local\Programs\Python\Python313\Lib\asyncio\base_events.py", line 725, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "C:\Users\Faizal hidayat\strukdat\Lib\site-packages\nbclient\client.py", line 709, in async_execute
+    await self.async_execute_cell(
+        cell, index, execution_count=self.code_cells_executed + 1
+    )
+  File "C:\Users\Faizal hidayat\strukdat\Lib\site-packages\nbclient\client.py", line 1062, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "C:\Users\Faizal hidayat\strukdat\Lib\site-packages\nbclient\client.py", line 918, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+def stack () :
+  s =[]
+  return (s)
+
+def push (s , data ):
+  s. append ( data )
+
+def pop(s):
+  data =s.pop()
+  return(data)
+
+def peek(s):
+  return s[-1]
+
+def isEmpty(s):
+  return (s ==[])
+
+def size(s):
+  return (len(s))
+
+def biner(desimal):
+    st = stack()
+
+    proses = []
+    while desimal > 0:
+        sisa = desimal % 2
+        push(st, sisa)
+        desimal = desimal // 2
+        push(proses, f"Push stack with {sisa} ---> {st}")
+
+    hasil = ""
+    while not isEmpty(st):
+        ambil = pop(st)
+        hasil += str(ambil)
+        push(proses, f"Pop stack with ---> {st}")
+
+    return hasil, proses
+
+num = 57
+hasil, proses = biner(num)
+
+for i in proses:
+  print(i)
+
+print(f"\nbiner {num} = {hasil}")
+
+
+#-----------------------------------------
+
+def stack():
+    s = []
+    return s
+
+def push(s, data):
+    s.append(data)
+
+def pop(s):
+    data = s.pop()
+    return data
+
+def peek(s):
+    return s[-1]
+
+def isEmpty(s):
+    return (s == [])
+
+def size(s):
+    return (len(s))
+
+def cek_kurung(num):
+    st = stack()
+    proses = []
+    error = []
+    chek = True
+    pasangan = {')':'(', ']':'[', '}':'{'}
+
+    for i in num:
+        if i in "([{":
+            push(st, i)
+            push(proses, f"Push stack with {i} --> {st}")
+
+        elif i in ")]}":
+            if not isEmpty(st):
+                ambil_st = pop(st)
+                push(proses, f"Pop Stack --> {st}")
+
+                if pasangan[i] != ambil_st:
+                    push(error, f"kurung buka {ambil_st} tidak cocok dengan {i}")
+                    chek = False
+            else:
+                push(error, "kelebihan kurung tutup")
+                chek = False
+
+    if not isEmpty(st):
+        push(error, "kelebihan kurung buka")
+        chek = False
+
+    return error, proses, chek
+
+
+persamaan = "([4+5]/[9+8]*[3+2])"
+error, proses, chek = cek_kurung(persamaan)
+
+print(chek)
+
+print("Proses Cek:")
+no = 1
+for i in proses:
+    print(f"{no}. {i}")
+    no += 1
+
+no = 1
+print("\nError:")
+for i in error:
+    print(f"{no}. {i}")
+    no += 1
+
+#-------------------------------------------------
+
+
+def stack():
+    s=[]
+    return (s)
+
+def push(s,data):
+    s.append(data)
+
+def pop(s):
+    data=s.pop()
+    return(data)
+
+def peek(s):
+    return(s[len(s)-1])
+
+def isEmpty(s):
+    return (s==[])
+
+def size(s):
+    return(len(s))
+
+infix = input("masukkan infix (pisahkan dengan spasi): ").split()
+opstack = stack()
+output = stack()
+
+operator = "*+-/"
+
+presenden = {
+    "*" : 2,
+    "/" : 2,
+    "+" : 1,
+    "-" : 1
+}
+
+for i in infix:
+    if i in operator:
+        while not isEmpty(opstack) and peek(opstack) in operator and presenden[i] <= presenden[peek(opstack)]:
+            push(output, pop(opstack))
+        push(opstack, i)
+
+    elif i == "(":
+        push(opstack, i)
+
+    elif i == ")":
+        while not isEmpty(opstack) and peek(opstack) != "(":
+            push(output, pop(opstack))
+        pop(opstack)
+    else:
+        push(output, i)
+
+while not isEmpty(opstack):
+    push(output, pop(opstack))
+
+hasil = ""
+for i in output:
+    hasil += i + " "
+
+print(f"Bentuk postfixnya adalah {hasil}")
+------------------
+
+----- stdout -----
+Push stack with 1 ---> [1]
+Push stack with 0 ---> [1, 0]
+Push stack with 0 ---> [1, 0, 0]
+Push stack with 1 ---> [1, 0, 0, 1]
+Push stack with 1 ---> [1, 0, 0, 1, 1]
+Push stack with 1 ---> [1, 0, 0, 1, 1, 1]
+Pop stack with ---> [1, 0, 0, 1, 1]
+Pop stack with ---> [1, 0, 0, 1]
+Pop stack with ---> [1, 0, 0]
+Pop stack with ---> [1, 0]
+Pop stack with ---> [1]
+Pop stack with ---> []
+
+biner 57 = 111001
+True
+Proses Cek:
+1. Push stack with ( --> ['(']
+2. Push stack with [ --> ['(', '[']
+3. Pop Stack --> ['(']
+4. Push stack with [ --> ['(', '[']
+5. Pop Stack --> ['(']
+6. Push stack with [ --> ['(', '[']
+7. Pop Stack --> ['(']
+8. Pop Stack --> []
+
+Error:
+------------------
+
+[31m---------------------------------------------------------------------------[39m
+[31mStdinNotImplementedError[39m                  Traceback (most recent call last)
+[36mCell[39m[36m [39m[32mIn[1][39m[32m, line 141[39m
+[32m    137[39m 
+[32m    138[39m [38;5;28;01mdef[39;00m size(s):
+[32m    139[39m     [38;5;28;01mreturn[39;00m(len(s))
+[32m    140[39m 
+[32m--> [39m[32m141[39m infix = input([33m"masukkan infix (pisahkan dengan spasi): "[39m).split()
+[32m    142[39m opstack = stack()
+[32m    143[39m output = stack()
+[32m    144[39m 
+
+[36mFile [39m[32m~\strukdat\Lib\site-packages\ipykernel\kernelbase.py:1402[39m, in [36mKernel.raw_input[39m[34m(self, prompt)[39m
+[32m   1400[39m [38;5;28;01mif[39;00m [38;5;129;01mnot[39;00m [38;5;28mself[39m._allow_stdin:
+[32m   1401[39m     msg = [33m"[39m[33mraw_input was called, but this frontend does not support input requests.[39m[33m"[39m
+[32m-> [39m[32m1402[39m     [38;5;28;01mraise[39;00m StdinNotImplementedError(msg)
+[32m   1403[39m [38;5;28;01mreturn[39;00m [38;5;28mself[39m._input_request(
+[32m   1404[39m     [38;5;28mstr[39m(prompt),
+[32m   1405[39m     [38;5;28mself[39m._get_shell_context_var([38;5;28mself[39m._shell_parent_ident),
+[32m   1406[39m     [38;5;28mself[39m.get_parent([33m"[39m[33mshell[39m[33m"[39m),
+[32m   1407[39m     password=[38;5;28;01mFalse[39;00m,
+[32m   1408[39m )
+
+[31mStdinNotImplementedError[39m: raw_input was called, but this frontend does not support input requests.
+

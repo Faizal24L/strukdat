@@ -1,0 +1,740 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Tree &#8212; My sample book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css?v=8cd3d715" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=b8b12719"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Tree';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Linier Search" href="search.html" />
+    <link rel="prev" title="Buble Short" href="shorting.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="My sample book - Home"/>
+    <img src="_static/logo.png" class="logo__image only-dark pst-js-only" alt="My sample book - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Welcome to your Jupyter Book
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="shorting.html">Buble Short</a></li>
+
+
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Tree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="search.html">Search Page</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rangkuman_stack.html">Stack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rangkuman_deque.html">struktur Data Deque</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FTree.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/Tree.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Tree</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="tree">
+<h1>Tree<a class="headerlink" href="#tree" title="Link to this heading">#</a></h1>
+<p>TREE DAN BINARY TREE</p>
+<p>Tree adalah struktur data non-linear, berbeda dengan stack, queue, atau deque. Bentuk tree dalam computer science mirip dengan pohon pada biologi karena sama-sama memiliki:</p>
+<ul class="simple">
+<li><p>root (akar),</p></li>
+<li><p>branches (cabang),</p></li>
+<li><p>dan leaves (daun).</p></li>
+</ul>
+<p>Perbedaannya, pada computer science posisi root berada di atas, sedangkan cabang dan daun berada di bawah.</p>
+<p>TREE</p>
+<p>Pada struktur data Tree, pencarian solusi dimulai dari root, lalu bergerak mengikuti edge/cabang hingga mencapai leaf yang berisi solusi atau tujuan. Contohnya pada struktur folder komputer, path menuju folder Struktur Data adalah:
+Computer → D: → Mata Kuliah → Struktur Data.</p>
+<p>Istilah penting pada Tree:</p>
+<ul class="simple">
+<li><p>Node → tempat menyimpan data/informasi.</p></li>
+<li><p>Edge → penghubung antar node.</p></li>
+<li><p>Root → node paling atas.</p></li>
+<li><p>Path → urutan node dari root ke tujuan.</p></li>
+<li><p>Children → node anak dari parent yang sama.</p></li>
+<li><p>Parent → node induk yang memiliki children.</p></li>
+<li><p>Siblings → node-node dengan parent yang sama.</p></li>
+<li><p>Subtree → bagian tree yang terdiri dari parent dan turunannya.</p></li>
+<li><p>Leaf node → node tanpa children.</p></li>
+<li><p>Level → tingkatan node dari root.</p></li>
+<li><p>Height → level tertinggi pada tree.</p></li>
+</ul>
+<p>Tree dapat dipandang sebagai struktur yang terdiri dari:</p>
+<p>sebuah root
+dan satu atau lebih subtree.</p>
+<p>Subtree juga merupakan tree, sehingga struktur tree bersifat rekursif.</p>
+<p><img alt="image.png" src="_images/tree1.png" /></p>
+<p>BINARY TREE</p>
+<p>Binary Tree adalah tree yang setiap parent-nya memiliki maksimal dua children (anak), bisa satu atau dua node saja. Karena binary tree terdiri dari node yang menyimpan data dan hubungan antar node (edge), maka struktur ini lebih mudah diimplementasikan menggunakan tipe data class.</p>
+<p><img alt="image.png" src="_images/binarytree.png" /></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#kode class binarytree</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">BinaryTree</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">root</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">key</span> <span class="o">=</span> <span class="n">root</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">leftChild</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rightChild</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">insertLeft</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">new_node</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">leftChild</span> <span class="o">==</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">leftChild</span> <span class="o">=</span> <span class="n">BinaryTree</span><span class="p">(</span><span class="n">new_node</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">t</span> <span class="o">=</span> <span class="n">BinaryTree</span><span class="p">(</span><span class="n">new_node</span><span class="p">)</span>
+            <span class="n">t</span><span class="o">.</span><span class="n">leftChild</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">leftChild</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">leftChild</span> <span class="o">=</span> <span class="n">t</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">insertRight</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">new_node</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">rightChild</span> <span class="o">==</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">rightChild</span> <span class="o">=</span> <span class="n">BinaryTree</span><span class="p">(</span><span class="n">new_node</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">t</span> <span class="o">=</span> <span class="n">BinaryTree</span><span class="p">(</span><span class="n">new_node</span><span class="p">)</span>
+            <span class="n">t</span><span class="o">.</span><span class="n">rightChild</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">rightChild</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">rightChild</span> <span class="o">=</span> <span class="n">t</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">getRightChild</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">rightChild</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">getLeftChild</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">leftChild</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">setRootVal</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">key</span> <span class="o">=</span> <span class="n">obj</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">getRootVal</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">key</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>PARSING BINTREE</p>
+<p>Binary Tree dapat digunakan untuk menyelesaikan persamaan matematika dengan memperhatikan operator precedence dan tanda kurung. Operasi di dalam kurung harus diselesaikan lebih dahulu sebelum operasi lainnya.</p>
+<p>Penyelesaian persamaan dengan Binary Tree dilakukan dalam dua tahap:</p>
+<ol class="arabic simple">
+<li><p>Membentuk Parse Tree</p></li>
+<li><p>Evaluasi Persamaan</p></li>
+</ol>
+<p>Pada Parse Tree:</p>
+<ul class="simple">
+<li><p>Operator menjadi parent.</p></li>
+<li><p>Operand menjadi leaf node.</p></li>
+<li><p>Subtree kiri dan kanan merepresentasikan operasi yang harus dihitung terlebih dahulu.</p></li>
+</ul>
+<p>Token pada ekspresi matematika:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">(</span></code> → awal ekspresi baru / subtree baru.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">)</span></code> → akhir ekspresi.</p></li>
+<li><p>Operand → nilai/data.</p></li>
+<li><p>Operator → operasi matematika.</p></li>
+</ul>
+<p>Algoritma pembuatan Parse Tree:</p>
+<ol class="arabic simple">
+<li><p>Jika token <code class="docutils literal notranslate"><span class="pre">(</span></code> → buat left child baru dan pindah ke node tersebut.</p></li>
+<li><p>Jika token operator → simpan operator pada current node, buat right child baru, lalu pindah ke right child.</p></li>
+<li><p>Jika token operand → simpan operand pada current node lalu kembali ke parent.</p></li>
+<li><p>Jika token <code class="docutils literal notranslate"><span class="pre">)</span></code> → kembali ke parent node.</p></li>
+</ol>
+<p>Untuk kembali ke parent digunakan struktur data Stack:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">push</span></code> current node saat turun ke child.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pop</span></code> untuk kembali ke parent node.</p></li>
+</ul>
+<p>Berikut contoh pembuatan parse tree untuk ekpressi matematika.</p>
+<p><img alt="image.png" src="_images/tree2.png" /></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#kode binary tree untuk persamaan matematika (parsing)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">stack</span><span class="p">():</span>
+    <span class="n">s</span><span class="o">=</span><span class="p">[]</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">s</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">push</span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="n">data</span><span class="p">):</span>
+    <span class="n">s</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">pop</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
+    <span class="n">data</span><span class="o">=</span><span class="n">s</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+    <span class="k">return</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">peek</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
+    <span class="k">return</span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">isEmpty</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">s</span><span class="o">==</span><span class="p">[])</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">size</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
+    <span class="k">return</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">))</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">BinaryTree</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">root</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">key</span> <span class="o">=</span> <span class="n">root</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">leftChild</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rightChild</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">insertLeft</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">new_node</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">leftChild</span> <span class="o">==</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">leftChild</span> <span class="o">=</span> <span class="n">BinaryTree</span><span class="p">(</span><span class="n">new_node</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">t</span> <span class="o">=</span> <span class="n">BinaryTree</span><span class="p">(</span><span class="n">new_node</span><span class="p">)</span>
+            <span class="n">t</span><span class="o">.</span><span class="n">leftChild</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">leftChild</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">leftChild</span> <span class="o">=</span> <span class="n">t</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">insertRight</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">new_node</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">rightChild</span> <span class="o">==</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">rightChild</span> <span class="o">=</span> <span class="n">BinaryTree</span><span class="p">(</span><span class="n">new_node</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">t</span> <span class="o">=</span> <span class="n">BinaryTree</span><span class="p">(</span><span class="n">new_node</span><span class="p">)</span>
+            <span class="n">t</span><span class="o">.</span><span class="n">rightChild</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">rightChild</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">rightChild</span> <span class="o">=</span> <span class="n">t</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">getRightChild</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">rightChild</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">getLeftChild</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">leftChild</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">setRootVal</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">key</span> <span class="o">=</span> <span class="n">obj</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">getRootVal</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">key</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">buildParseTree</span><span class="p">(</span><span class="n">mathExp</span><span class="p">):</span>
+    <span class="n">tokenList</span> <span class="o">=</span> <span class="n">mathExp</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+    <span class="n">parentStack</span> <span class="o">=</span> <span class="n">stack</span><span class="p">()</span>
+    <span class="n">expTree</span> <span class="o">=</span> <span class="n">BinaryTree</span><span class="p">(</span><span class="s1">&#39; &#39;</span> <span class="p">)</span>
+    <span class="n">push</span><span class="p">(</span><span class="n">parentStack</span><span class="p">,</span><span class="n">expTree</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">tokenList</span><span class="p">)</span>
+    <span class="n">currentTree</span> <span class="o">=</span> <span class="n">expTree</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">tokenList</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="s1">&#39;(&#39;</span> <span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;if 1&#39;</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
+            <span class="n">currentTree</span><span class="o">.</span><span class="n">insertLeft</span><span class="p">(</span><span class="s1">&#39; &#39;</span> <span class="p">)</span>
+            <span class="n">push</span><span class="p">(</span><span class="n">parentStack</span><span class="p">,</span><span class="n">currentTree</span><span class="p">)</span>
+            <span class="n">currentTree</span> <span class="o">=</span> <span class="n">currentTree</span><span class="o">.</span><span class="n">getLeftChild</span><span class="p">()</span>
+        <span class="k">elif</span> <span class="n">i</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span> <span class="s1">&#39;+&#39;</span> <span class="p">,</span> <span class="s1">&#39;-&#39;</span> <span class="p">,</span> <span class="s1">&#39;*&#39;</span> <span class="p">,</span> <span class="s1">&#39;/&#39;</span> <span class="p">,</span> <span class="s1">&#39;)&#39;</span> <span class="p">]:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;if 2&#39;</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
+            <span class="n">currentTree</span><span class="o">.</span><span class="n">setRootVal</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
+            <span class="n">parent</span> <span class="o">=</span> <span class="n">pop</span><span class="p">(</span><span class="n">parentStack</span><span class="p">)</span>
+            <span class="n">currentTree</span> <span class="o">=</span> <span class="n">parent</span>
+        <span class="k">elif</span> <span class="n">i</span> <span class="ow">in</span> <span class="p">[</span> <span class="s1">&#39;+&#39;</span> <span class="p">,</span> <span class="s1">&#39;-&#39;</span> <span class="p">,</span> <span class="s1">&#39;*&#39;</span> <span class="p">,</span> <span class="s1">&#39;/&#39;</span> <span class="p">]:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;if 3&#39;</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
+            <span class="n">currentTree</span><span class="o">.</span><span class="n">setRootVal</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+            <span class="n">currentTree</span><span class="o">.</span><span class="n">insertRight</span><span class="p">(</span><span class="s1">&#39; &#39;</span> <span class="p">)</span>
+            <span class="n">push</span><span class="p">(</span><span class="n">parentStack</span><span class="p">,</span><span class="n">currentTree</span><span class="p">)</span>
+            <span class="n">currentTree</span> <span class="o">=</span> <span class="n">currentTree</span><span class="o">.</span><span class="n">getRightChild</span><span class="p">()</span>
+        <span class="k">elif</span> <span class="n">i</span> <span class="o">==</span> <span class="s1">&#39;)&#39;</span> <span class="p">:</span>
+            <span class="n">currentTree</span> <span class="o">=</span> <span class="n">pop</span><span class="p">(</span><span class="n">parentStack</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span>
+            <span class="k">return</span> <span class="n">expTree</span>
+
+<span class="n">pt</span> <span class="o">=</span> <span class="n">buildParseTree</span><span class="p">(</span><span class="s1">&#39; ( 3 + ( 4 * 5 ) ) &#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pt</span><span class="o">.</span><span class="n">getRootVal</span><span class="p">())</span>
+<span class="n">tmp</span><span class="o">=</span><span class="n">pt</span><span class="o">.</span><span class="n">getLeftChild</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">tmp</span><span class="o">.</span><span class="n">getRootVal</span><span class="p">())</span>
+<span class="k">if</span> <span class="n">pt</span><span class="o">.</span><span class="n">getLeftChild</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Tree&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;(&#39;, &#39;3&#39;, &#39;+&#39;, &#39;(&#39;, &#39;4&#39;, &#39;*&#39;, &#39;5&#39;, &#39;)&#39;, &#39;)&#39;]
+if 1 (
+if 2 3
+if 3 +
+if 1 (
+if 2 4
+if 3 *
+if 2 5
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">76</span>
+<span class="g g-Whitespace">     </span><span class="mi">72</span>             <span class="k">raise</span> <span class="ne">ValueError</span>
+<span class="g g-Whitespace">     </span><span class="mi">73</span>             <span class="k">return</span> <span class="n">expTree</span>
+<span class="g g-Whitespace">     </span><span class="mi">74</span> 
+<span class="g g-Whitespace">     </span><span class="mi">75</span> <span class="n">pt</span> <span class="o">=</span> <span class="n">buildParseTree</span><span class="p">(</span><span class="s1">&#39; ( 3 + ( 4 * 5 ) ) &#39;</span><span class="p">)</span>
+<span class="ne">---&gt; </span><span class="mi">76</span> <span class="nb">print</span><span class="p">(</span><span class="n">pt</span><span class="o">.</span><span class="n">getRootVal</span><span class="p">())</span>
+<span class="g g-Whitespace">     </span><span class="mi">77</span> <span class="n">tmp</span><span class="o">=</span><span class="n">pt</span><span class="o">.</span><span class="n">getLeftChild</span><span class="p">()</span>
+<span class="g g-Whitespace">     </span><span class="mi">78</span> <span class="nb">print</span><span class="p">(</span><span class="n">tmp</span><span class="o">.</span><span class="n">getRootVal</span><span class="p">())</span>
+<span class="g g-Whitespace">     </span><span class="mi">79</span> <span class="k">if</span> <span class="n">pt</span><span class="o">.</span><span class="n">getLeftChild</span><span class="p">():</span>
+
+<span class="ne">AttributeError</span>: &#39;NoneType&#39; object has no attribute &#39;getRootVal&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>EVALUASI PERSAMAAN MATEMATIKA</p>
+<p>Penyelesaian persamaan matematika dengan Binary Tree dilakukan secara rekursif pada setiap subtree. Base case rekursi terjadi saat mencapai leaf node, karena leaf node tidak memiliki child lagi. Nilai pada leaf node adalah operand, sehingga fungsi rekursif mengembalikan nilai node tersebut. Proses rekursi:</p>
+<ul class="simple">
+<li><p>Selesaikan left child dan right child terlebih dahulu.</p></li>
+<li><p>Gabungkan hasil keduanya menggunakan operator pada parent node.</p></li>
+<li><p>Hasil operasi menjadi nilai balik untuk level di atasnya.</p></li>
+</ul>
+<p>Operasi aritmatika seperti +, -, *, / dapat dilakukan menggunakan modul operator, contohnya: operator.add(x, y)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># kode fungsi rekursif untuk mengevaluasi persamaan matematika</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">operator</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">evaluate</span><span class="p">(</span><span class="n">parse_tree</span><span class="p">):</span>
+    <span class="n">opers</span> <span class="o">=</span> <span class="p">{</span> <span class="s1">&#39;+&#39;</span> <span class="p">:</span><span class="n">operator</span><span class="o">.</span><span class="n">add</span><span class="p">,</span> <span class="s1">&#39;-&#39;</span> <span class="p">:</span><span class="n">operator</span><span class="o">.</span><span class="n">sub</span><span class="p">,</span> <span class="s1">&#39;*&#39;</span> <span class="p">:</span><span class="n">operator</span><span class="o">.</span><span class="n">mul</span><span class="p">,</span><span class="s1">&#39;/&#39;</span> <span class="p">:</span><span class="n">op</span><span class="p">}</span>
+    <span class="n">left</span> <span class="o">=</span> <span class="n">parse_tree</span><span class="o">.</span><span class="n">getLeftChild</span><span class="p">()</span>
+    <span class="n">right</span> <span class="o">=</span> <span class="n">parse_tree</span><span class="o">.</span><span class="n">getRightChild</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">left</span> <span class="ow">and</span> <span class="n">right</span><span class="p">:</span>
+        <span class="n">fn</span> <span class="o">=</span> <span class="n">opers</span><span class="p">[</span><span class="n">parse_tree</span><span class="o">.</span><span class="n">key</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">fn</span><span class="p">(</span><span class="n">evaluate</span><span class="p">(</span><span class="n">left</span><span class="p">),</span><span class="n">evaluate</span><span class="p">(</span><span class="n">right</span><span class="p">))</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">parse_tree</span><span class="o">.</span><span class="n">key</span>
+
+<span class="n">evaluate</span><span class="p">(</span><span class="n">pt</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">8</span><span class="p">],</span> <span class="n">line</span> <span class="mi">13</span>
+<span class="g g-Whitespace">     </span><span class="mi">10</span>     <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">11</span>         <span class="k">return</span> <span class="n">parse_tree</span><span class="o">.</span><span class="n">key</span>
+<span class="ne">---&gt; </span><span class="mi">13</span> <span class="n">evaluate</span><span class="p">(</span><span class="n">pt</span><span class="p">)</span>
+
+<span class="nn">Cell In[8], line 4,</span> in <span class="ni">evaluate</span><span class="nt">(parse_tree)</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="k">def</span><span class="w"> </span><span class="nf">evaluate</span><span class="p">(</span><span class="n">parse_tree</span><span class="p">):</span>
+<span class="ne">----&gt; </span><span class="mi">4</span>     <span class="n">opers</span> <span class="o">=</span> <span class="p">{</span> <span class="s1">&#39;+&#39;</span> <span class="p">:</span><span class="n">operator</span><span class="o">.</span><span class="n">add</span><span class="p">,</span> <span class="s1">&#39;-&#39;</span> <span class="p">:</span><span class="n">operator</span><span class="o">.</span><span class="n">sub</span><span class="p">,</span> <span class="s1">&#39;*&#39;</span> <span class="p">:</span><span class="n">operator</span><span class="o">.</span><span class="n">mul</span><span class="p">,</span><span class="s1">&#39;/&#39;</span> <span class="p">:</span><span class="n">op</span><span class="p">}</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span>     <span class="n">left</span> <span class="o">=</span> <span class="n">parse_tree</span><span class="o">.</span><span class="n">getLeftChild</span><span class="p">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span>     <span class="n">right</span> <span class="o">=</span> <span class="n">parse_tree</span><span class="o">.</span><span class="n">getRightChild</span><span class="p">()</span>
+
+<span class="ne">NameError</span>: name &#39;op&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="shorting.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Buble Short</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="search.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Linier Search</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By The Jupyter Book Community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
