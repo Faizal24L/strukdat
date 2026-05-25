@@ -178,6 +178,8 @@
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Buble Short</a></li>
 
 
+
+
 <li class="toctree-l1"><a class="reference internal" href="Tree.html">Tree</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Linked%20List.html">Linked List</a></li>
 
@@ -380,6 +382,8 @@
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Buble Short</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#selection-short">Selection Short</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#insertion-sort">insertion sort</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#tugas-shorting">tugas shorting</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#analisa-perbandingan-awktu-utuk-setiao-fungsi-sorting">ANALISA PERBANDINGAN AWKTU UTUK SETIAO FUNGSI SORTING</a></li>
 </ul>
 
             </nav>
@@ -860,6 +864,232 @@ Insertion Sort Optimized: [11, 12, 22, 25, 64]
 </div>
 </div>
 </section>
+<section class="tex2jax_ignore mathjax_ignore" id="tugas-shorting">
+<h1>tugas shorting<a class="headerlink" href="#tugas-shorting" title="Link to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">random</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+
+<span class="c1"># mengatur batas maksimum rekursi</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">setrecursionlimit</span><span class="p">(</span><span class="mi">10000</span><span class="p">)</span>
+
+
+<span class="c1"># =========================</span>
+<span class="c1"># BUBBLE SORT</span>
+<span class="c1"># =========================</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">bubble_sort</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+    <span class="n">jumlah_data</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">jumlah_data</span><span class="p">):</span>
+
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">jumlah_data</span> <span class="o">-</span> <span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
+
+            <span class="k">if</span> <span class="n">data</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">data</span><span class="p">[</span><span class="n">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]:</span>
+
+                <span class="n">sementara</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
+                <span class="n">data</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span>
+                <span class="n">data</span><span class="p">[</span><span class="n">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">sementara</span>
+
+    <span class="k">return</span> <span class="n">data</span>
+
+
+<span class="c1"># =========================</span>
+<span class="c1"># SELECTION SORT</span>
+<span class="c1"># =========================</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">selection_sort</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+    <span class="n">jumlah_data</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">jumlah_data</span><span class="p">):</span>
+
+        <span class="n">index_terkecil</span> <span class="o">=</span> <span class="n">i</span>
+
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">jumlah_data</span><span class="p">):</span>
+
+            <span class="k">if</span> <span class="n">data</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">data</span><span class="p">[</span><span class="n">index_terkecil</span><span class="p">]:</span>
+                <span class="n">index_terkecil</span> <span class="o">=</span> <span class="n">j</span>
+
+        <span class="n">sementara</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        <span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">index_terkecil</span><span class="p">]</span>
+        <span class="n">data</span><span class="p">[</span><span class="n">index_terkecil</span><span class="p">]</span> <span class="o">=</span> <span class="n">sementara</span>
+
+    <span class="k">return</span> <span class="n">data</span>
+
+
+<span class="c1"># =========================</span>
+<span class="c1"># INSERTION SORT</span>
+<span class="c1"># =========================</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">insertion_sort</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)):</span>
+
+        <span class="n">nilai_sekarang</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        <span class="n">j</span> <span class="o">=</span> <span class="n">i</span> <span class="o">-</span> <span class="mi">1</span>
+
+        <span class="k">while</span> <span class="n">j</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">data</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">nilai_sekarang</span><span class="p">:</span>
+
+            <span class="n">data</span><span class="p">[</span><span class="n">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
+            <span class="n">j</span> <span class="o">=</span> <span class="n">j</span> <span class="o">-</span> <span class="mi">1</span>
+
+        <span class="n">data</span><span class="p">[</span><span class="n">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">nilai_sekarang</span>
+
+    <span class="k">return</span> <span class="n">data</span>
+
+
+<span class="c1"># =========================</span>
+<span class="c1"># QUICK SORT</span>
+<span class="c1"># =========================</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">quick_sort</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">data</span>
+
+    <span class="n">pivot</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span><span class="p">]</span>
+
+    <span class="n">kiri</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">tengah</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">kanan</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">for</span> <span class="n">angka</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
+
+        <span class="k">if</span> <span class="n">angka</span> <span class="o">&lt;</span> <span class="n">pivot</span><span class="p">:</span>
+            <span class="n">kiri</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">angka</span><span class="p">)</span>
+
+        <span class="k">elif</span> <span class="n">angka</span> <span class="o">&gt;</span> <span class="n">pivot</span><span class="p">:</span>
+            <span class="n">kanan</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">angka</span><span class="p">)</span>
+
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">tengah</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">angka</span><span class="p">)</span>
+
+    <span class="n">hasil_kiri</span> <span class="o">=</span> <span class="n">quick_sort</span><span class="p">(</span><span class="n">kiri</span><span class="p">)</span>
+    <span class="n">hasil_kanan</span> <span class="o">=</span> <span class="n">quick_sort</span><span class="p">(</span><span class="n">kanan</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">hasil_kiri</span> <span class="o">+</span> <span class="n">tengah</span> <span class="o">+</span> <span class="n">hasil_kanan</span>
+
+
+<span class="c1"># =========================</span>
+<span class="c1"># MERGE SORT</span>
+<span class="c1"># =========================</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">merge_sort</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">data</span>
+
+    <span class="n">tengah</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span>
+
+    <span class="n">bagian_kiri</span> <span class="o">=</span> <span class="n">data</span><span class="p">[:</span><span class="n">tengah</span><span class="p">]</span>
+    <span class="n">bagian_kanan</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">tengah</span><span class="p">:]</span>
+
+    <span class="n">bagian_kiri</span> <span class="o">=</span> <span class="n">merge_sort</span><span class="p">(</span><span class="n">bagian_kiri</span><span class="p">)</span>
+    <span class="n">bagian_kanan</span> <span class="o">=</span> <span class="n">merge_sort</span><span class="p">(</span><span class="n">bagian_kanan</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">gabung</span><span class="p">(</span><span class="n">bagian_kiri</span><span class="p">,</span> <span class="n">bagian_kanan</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">gabung</span><span class="p">(</span><span class="n">kiri</span><span class="p">,</span> <span class="n">kanan</span><span class="p">):</span>
+
+    <span class="n">hasil</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="n">index_kiri</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">index_kanan</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="k">while</span> <span class="n">index_kiri</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">kiri</span><span class="p">)</span> <span class="ow">and</span> <span class="n">index_kanan</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">kanan</span><span class="p">):</span>
+
+        <span class="k">if</span> <span class="n">kiri</span><span class="p">[</span><span class="n">index_kiri</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">kanan</span><span class="p">[</span><span class="n">index_kanan</span><span class="p">]:</span>
+
+            <span class="n">hasil</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">kiri</span><span class="p">[</span><span class="n">index_kiri</span><span class="p">])</span>
+            <span class="n">index_kiri</span> <span class="o">=</span> <span class="n">index_kiri</span> <span class="o">+</span> <span class="mi">1</span>
+
+        <span class="k">else</span><span class="p">:</span>
+
+            <span class="n">hasil</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">kanan</span><span class="p">[</span><span class="n">index_kanan</span><span class="p">])</span>
+            <span class="n">index_kanan</span> <span class="o">=</span> <span class="n">index_kanan</span> <span class="o">+</span> <span class="mi">1</span>
+
+    <span class="k">while</span> <span class="n">index_kiri</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">kiri</span><span class="p">):</span>
+
+        <span class="n">hasil</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">kiri</span><span class="p">[</span><span class="n">index_kiri</span><span class="p">])</span>
+        <span class="n">index_kiri</span> <span class="o">=</span> <span class="n">index_kiri</span> <span class="o">+</span> <span class="mi">1</span>
+
+    <span class="k">while</span> <span class="n">index_kanan</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">kanan</span><span class="p">):</span>
+
+        <span class="n">hasil</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">kanan</span><span class="p">[</span><span class="n">index_kanan</span><span class="p">])</span>
+        <span class="n">index_kanan</span> <span class="o">=</span> <span class="n">index_kanan</span> <span class="o">+</span> <span class="mi">1</span>
+
+    <span class="k">return</span> <span class="n">hasil</span>
+
+
+<span class="c1"># =========================</span>
+<span class="c1"># TEST WAKTU SORTING</span>
+<span class="c1"># =========================</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">test_sorting</span><span class="p">(</span><span class="n">jumlah_data</span><span class="p">):</span>
+
+    <span class="n">data_acak</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">jumlah_data</span><span class="p">):</span>
+
+        <span class="n">angka_acak</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+        <span class="n">data_acak</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">angka_acak</span><span class="p">)</span>
+
+    <span class="n">daftar_algoritma</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;Bubble Sort&quot;</span><span class="p">:</span> <span class="n">bubble_sort</span><span class="p">,</span>
+        <span class="s2">&quot;Selection Sort&quot;</span><span class="p">:</span> <span class="n">selection_sort</span><span class="p">,</span>
+        <span class="s2">&quot;Insertion Sort&quot;</span><span class="p">:</span> <span class="n">insertion_sort</span><span class="p">,</span>
+        <span class="s2">&quot;Quick Sort&quot;</span><span class="p">:</span> <span class="n">quick_sort</span><span class="p">,</span>
+        <span class="s2">&quot;Merge Sort&quot;</span><span class="p">:</span> <span class="n">merge_sort</span>
+    <span class="p">}</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">=== HASIL UNTUK&quot;</span><span class="p">,</span> <span class="n">jumlah_data</span><span class="p">,</span> <span class="s2">&quot;DATA ===&quot;</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">nama_algoritma</span> <span class="ow">in</span> <span class="n">daftar_algoritma</span><span class="p">:</span>
+
+        <span class="n">fungsi_sort</span> <span class="o">=</span> <span class="n">daftar_algoritma</span><span class="p">[</span><span class="n">nama_algoritma</span><span class="p">]</span>
+
+        <span class="n">salinan_data</span> <span class="o">=</span> <span class="n">data_acak</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+        <span class="n">waktu_mulai</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+
+        <span class="n">fungsi_sort</span><span class="p">(</span><span class="n">salinan_data</span><span class="p">)</span>
+
+        <span class="n">waktu_selesai</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+
+        <span class="n">total_waktu</span> <span class="o">=</span> <span class="p">(</span><span class="n">waktu_selesai</span> <span class="o">-</span> <span class="n">waktu_mulai</span><span class="p">)</span> <span class="o">*</span> <span class="mi">1000</span>
+
+        <span class="nb">print</span><span class="p">(</span><span class="n">nama_algoritma</span><span class="p">,</span> <span class="s2">&quot;:&quot;</span><span class="p">,</span> <span class="nb">format</span><span class="p">(</span><span class="n">total_waktu</span><span class="p">,</span> <span class="s2">&quot;.4f&quot;</span><span class="p">),</span> <span class="s2">&quot;ms&quot;</span><span class="p">)</span>
+
+
+<span class="c1"># =========================</span>
+<span class="c1"># PROGRAM UTAMA</span>
+<span class="c1"># =========================</span>
+<span class="n">test_sorting</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">test_sorting</span><span class="p">(</span><span class="mi">500</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>=== HASIL UNTUK 100 DATA ===
+Bubble Sort : 0.4380 ms
+Selection Sort : 0.2422 ms
+Insertion Sort : 0.2084 ms
+Quick Sort : 0.1156 ms
+Merge Sort : 0.1657 ms
+
+=== HASIL UNTUK 500 DATA ===
+Bubble Sort : 12.0416 ms
+Selection Sort : 5.5466 ms
+Insertion Sort : 5.9617 ms
+Quick Sort : 0.5298 ms
+Merge Sort : 0.9089 ms
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="analisa-perbandingan-awktu-utuk-setiao-fungsi-sorting">
+<h1>ANALISA PERBANDINGAN AWKTU UTUK SETIAO FUNGSI SORTING<a class="headerlink" href="#analisa-perbandingan-awktu-utuk-setiao-fungsi-sorting" title="Link to this heading">#</a></h1>
+<p>Kelima algoritma sorting pada kode memiliki perbedaan utama pada kompleksitas dan performanya. Bubble Sort, Selection Sort, dan Insertion Sort termasuk O(n²), sehingga waktu eksekusinya meningkat drastis saat data bertambah dari 100 ke 500. Bubble Sort paling lambat karena banyak pertukaran, Selection Sort lebih konsisten karena hanya satu swap per iterasi, sedangkan Insertion Sort lebih cepat jika data hampir terurut.</p>
+<p>Sementara itu, Quick Sort dan Merge Sort menggunakan pendekatan divide and conquer dengan kompleksitas O(n log n), sehingga jauh lebih efisien untuk data besar. Quick Sort biasanya sangat cepat pada data acak, sedangkan Merge Sort lebih stabil tetapi membutuhkan memori tambahan. Secara keseluruhan, algoritma O(n log n) lebih cocok untuk data besar, sedangkan O(n²) hanya efektif untuk data kecil.</p>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -930,6 +1160,8 @@ Insertion Sort Optimized: [11, 12, 22, 25, 64]
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Buble Short</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#selection-short">Selection Short</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#insertion-sort">insertion sort</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#tugas-shorting">tugas shorting</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#analisa-perbandingan-awktu-utuk-setiao-fungsi-sorting">ANALISA PERBANDINGAN AWKTU UTUK SETIAO FUNGSI SORTING</a></li>
 </ul>
 
   </nav></div>
